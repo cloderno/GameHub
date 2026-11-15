@@ -1,21 +1,21 @@
 package com.cloderno.GameHub.user;
 
+import com.cloderno.GameHub.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 @Getter
 @NoArgsConstructor
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
+public class UserEntity extends BaseEntity {
     @Column(nullable = false, length = 255)
     private String email;
 
@@ -41,6 +41,7 @@ public class UserEntity {
         this.email = email;
         this.username = username;
         this.passwordHash = passwordHash;
+        this.role = UserRole.USER;
         this.status = UserStatus.PENDING_VERIFICATION;
         this.emailVerified = false;
     }

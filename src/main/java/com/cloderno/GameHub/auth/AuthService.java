@@ -11,7 +11,7 @@ public class AuthService {
     private final AuthRepository authRepository;
 
     public void register(RegisterRequest registerRequest) {
-        UserEntity userRequest = registerRequest;
-        authRepository.save();
+//        UserEntity userRequest = registerRequest;
+//        authRepository.save();
     }
 }
