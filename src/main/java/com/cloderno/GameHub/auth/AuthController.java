@@ -1,8 +1,11 @@
 package com.cloderno.GameHub.auth;
 
 import com.cloderno.GameHub.auth.dto.RegisterRequest;
+import com.cloderno.GameHub.auth.dto.RegisterResponse;
 import io.micrometer.observation.transport.ResponseContext;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,8 +15,8 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/register")
-    public ResponseStatus register(@RequestBody RegisterRequest request) {
-        authService.register(request);
-        return null;
+    public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest request) {
+        RegisterResponse response = authService.register(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

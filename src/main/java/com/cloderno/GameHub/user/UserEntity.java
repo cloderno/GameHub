@@ -37,7 +37,7 @@ public class UserEntity extends BaseEntity {
     private boolean emailVerified;
 
     @Builder
-    private UserEntity(String email, String username, String passwordHash) {
+    public UserEntity(String email, String username, String passwordHash) {
         this.email = email;
         this.username = username;
         this.passwordHash = passwordHash;
