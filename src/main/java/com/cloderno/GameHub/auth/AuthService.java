@@ -13,7 +13,7 @@ public class AuthService {
 
     public RegisterResponse register(RegisterRequest registerRequest) {
         // TODO: ADD password encoder to security
-        // TODO: make builder constructor private, and use mapper
+        // TODO: make builder constructor private, and use mapper instead
         UserEntity user = new UserEntity(
                 registerRequest.email(),
                 registerRequest.username(),
